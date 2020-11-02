@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이디야 뉴스 ← 이디야 커피(Ediya Coffee)</title>
+    <meta name="description" content="이디야 커피 브랜드 사이트 (학습용) 이디야 뉴스 페이지입니다." />
+    <meta name="keywords" content="이디야, 커피, 브랜드, 사이트, 학습용, 이디야 뉴스, 이듬, 블렌디드 러닝" />
+    <meta name="author" content="이듬(E.UID)" />
+
+    <!-- 
+    [성능 개선]
+    - 외부 도메인의 리소스는 preconnect 합니다.
+    - 현재 페이지에서 반드시 사용되는 리소스는 preload 합니다.
+    - 미래에 사용되는 리소스는 prefetch 합니다.
+    -->
+    <link rel="preconnect" href="//spoqa.github.io" />
+    <link rel="preconnect" href="//www.figma.com" />
+    <link rel="preconnect" href="//cdnjs.cloudflare.com" />
+    <link rel="preload" as="style" href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" />
+    <link rel="preload" as="style" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="preload" as="style" href="../css/style.css" />
+    <link rel="preload" as="script" href="../js/utils/dom.js" />
+    <link rel="preload" as="script" href="../js/utils/mixins.js" />
+    <link rel="preload" as="script" href="../js/navigationControl.js" />
+    <link rel="preload" as="script" href="../js/goToTopControl.js" />
+    <link rel="preload" as="image" href="../images/brand.svg" />
+    <link rel="preload" as="image" href="../images/brand-dark.svg" />
+    <link rel="preload" as="image" href="../images/button-navigation.svg" />
+    <link rel="prefetch" as="image" href="../images/coffee-desktop.jpg" />
+    <link rel="prefetch" as="image" href="../images/coffee-mobile.jpg" />
+    <link rel="prefetch" as="image" href="../images/icon-arrow-disabled.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-arrow-white.svg " />
+    <link rel="prefetch" as="image" href="../images/icon-visible.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-warning.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-invisible.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-checked.svg" />
+    <link rel="prefetch" as="image" href="../images/coffee-desktop.jpg" />
+    <link rel="prefetch" as="image" href="../images/coffee-mobile.jpg" />
+    <link rel="prefetch" as="image" href="../media/coffee-latte-art-cover.png" />
+    <link rel="prefetch" as="video" href="../media/coffee-latte-art.mp4" />
+
+    <!-- 스타일링 -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+
+    <!-- 스크립트: 즉시 실행 -->
+    <script src="../js/utils/dom.js"></script>
+    <script src="../js/utils/mixins.js"></script>
+    <script src="../js/utils/isDevelopmentMode.js"></script>
+    <script src="../js/utils/ellipsisText.js"></script>
+    <script src="../js/polyfills/Array.from.js"></script>
+
+    <script src="../js/components/navigation/Navigation.js"></script>
+    <script src="../js/components/navigation/NavigationItem.js"></script>
+    <script src="../js/components/dataTable/SearchForm.js"></script>
+    <script src="../js/components/dataTable/Pagination.js"></script>
+    <script src="../js/components/dataTable/DataTable.js"></script>
+    <script src="../js/components/goToTop/GoToTop.js"></script>
+
+    <!-- 스크립트: DOM 콘텐츠 준비 이후 실행 -->
+    <script src="../js/navigationControl.js" defer></script>
+    <script src="../js/tabMenuControl.js" defer></script>
+    <script src="../js/newsControl.js" defer></script>
+    <script src="../js/goToTopControl.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app-header-container">
+      <header class="app-header">
+        <h1 class="brand">
+          <a href="../index.html"><img src="../images/brand.svg" alt="Ediya Coffee" class="respons" /></a>
+        </h1>
+        <button type="button" class="button is-open-menu" aria-label="메뉴 열기" title="메뉴 열기">
+          <span class="ir"></span>
+        </button>
+        <nav class="app-navigation">
+          <h2 class="a11y-hidden">메인 메뉴</h2>
+          <ul class="reset-list">
+            <!-- 비동기 데이터 바인딩 → 내비게이션 리스트 렌더링 -->
+          </ul>
+          <script type="text/template" id="template-navigation-list">
+            <li data-id="{item.id}"><a href="{item.link}">{item.text}</a></li>
+          </script>
+          <button type="button" class="button is-close-menu" title="메뉴 닫기" aria-label="메뉴 닫기">
+            <span class="close" aria-hidden="true">×</span>
+          </button>
+        </nav>
+      </header>
+    </div>
+    <main class="app-main news">
+      <h2 class="a11y-hidden">이디야 소식</h2>
+      <ul class="news-tab reset-list" role="tablist" aria-label="이디야 소식 탭 메뉴">
+        <li role="none">
+          <a href="#notice" role="tab" id="newsTab01" aria-controls="ediyaNewsSection01" aria-selected="false">공지사항</a>
+        </li>
+        <li role="none">
+          <a href="#press" role="tab" id="newsTab02" aria-controls="ediyaNewsSection02" aria-selected="false">언론 속 이디야</a>
+        </li>
+        <li role="none">
+          <a href="#promotion" role="tab" id="newsTab03" aria-controls="ediyaNewsSection03" aria-selected="false">홍보영상</a>
+        </li>
+        <li role="none">
+          <a href="#awards" role="tab" id="newsTab04" aria-controls="ediyaNewsSection04" aria-selected="false">수상내역</a>
+        </li>
+      </ul>
+      <section class="news__notice" role="tabpanel" aria-labelledby="newsTab01" id="newsPanel01">
+        <h2 class="news-headline" id="ediyaNewsSection01">공지사항</h2>
+        <p class="news-text">공지사항 내역 입니다.</p>
+      </section>
+      <section class="news__press" role="tabpanel" aria-labelledby="newsTab02" id="newsPanel02">
+        <h2 class="news-headline" id="ediyaNewsSection02">언론 속 이디야</h2>
+        <p class="news-text">이디야의 소식을 전해드립니다.</p>
+        <!-- newsControl.js에 의해 동적으로 데이터를 불러와 화면에 렌더링  -->
+      </section>
+      <section class="news__video" role="tabpanel" aria-labelledby="newsTab03" id="newsPanel03">
+        <h2 class="news-headline" id="ediyaNewsSection03">홍보영상</h2>
+        <p class="news-text">홍보영상 내역 입니다.</p>
+      </section>
+      <section class="news__award" role="tabpanel" aria-labelledby="newsTab03" id="newsPanel04">
+        <h2 class="news-headline" id="ediyaNewsSection04">수상내역</h2>
+        <p class="news-text">이디야의 영광스런 수상내역입니다.</p>
+        <div class="award-container">
+          <section class="news__award__year">
+            <h3 class="award-headline">2019<span class="a11y-hidden">년</span></h3>
+            <ul class="award-list reset-list">
+              <li class="award-item">
+                <details open>
+                  <summary class="award-subject"><b>11</b><span class="a11y-hidden">월</span>고용 노동부 주관, 일·생활 균형 우수 기업 선정</summary>
+                  <figure class="award-thumbnail">
+                    <img src="../images/thumbnail-award.jpg" alt="" />
+                    <figcaption>서울경제에서 주최하는 대한민국 창업대상 CEO 부문에 국무총리상을 수상하였습니다.</figcaption>
+                  </figure>
+                  <p>
+                    <span class="round-bar">수상일</span>
+                    <time class="award-date" datetime="2019-06-18">2019.06.18</time>
+                  </p>
+                </details>
+              </li>
+              <li class="award-item">
+                <details>
+                  <summary class="award-subject"><b>10</b><span class="a11y-hidden">월</span>커피 산업 공로상 농림축산식품부 장관상 수상</summary>
+                  <figure class="award-thumbnail">
+                    <img src="../images/thumbnail-award.jpg" alt="" />
+                    <figcaption>서울경제에서 주최하는 대한민국 창업대상 CEO 부문에 국무총리상을 수상하였습니다.</figcaption>
+                  </figure>
+                  <p>
+                    <span class="round-bar">수상일</span>
+                    <time class="award-date" datetime="2019-06-18">2019.06.18</time>
+                  </p>
+                </details>
+              </li>
+              <li class="award-item">
+                <details>
+                  <summary class="award-subject"><b>06</b><span class="a11y-hidden">월</span>이디야커피 대한민국 창업대상 국무총리상 수상</summary>
+                  <figure class="award-thumbnail">
+                    <img src="../images/thumbnail-award.jpg" alt="" />
+                    <figcaption>서울경제에서 주최하는 대한민국 창업대상 CEO 부문에 국무총리상을 수상하였습니다.</figcaption>
+                  </figure>
+                  <p>
+                    <span class="round-bar">수상일</span>
+                    <time class="award-date" datetime="2019-06-18">2019.06.18</time>
+                  </p>
+                </details>
+              </li>
+            </ul>
+          </section>
+          <section class="news__award__year">
+            <h3 class="award-headline">2018<span class="a11y-hidden">년</span></h3>
+            <ul class="award-list reset-list">
+              <li class="award-item">
+                <details>
+                  <summary class="award-subject"><b>12</b><span class="a11y-hidden">월</span>소비자중심경영(CCM) 인증 획득</summary>
+                  <figure class="award-thumbnail">
+                    <img src="../images/thumbnail-award.jpg" alt="" />
+                    <figcaption>서울경제에서 주최하는 대한민국 창업대상 CEO 부문에 국무총리상을 수상하였습니다.</figcaption>
+                  </figure>
+                  <p>
+                    <span class="round-bar">수상일</span>
+                    <time class="award-date" datetime="2019-06-18">2019.06.18</time>
+                  </p>
+                </details>
+              </li>
+            </ul>
+          </section>
+          <section class="news__award__year">
+            <h3 class="award-headline">2017<span class="a11y-hidden">년</span></h3>
+            <ul class="award-list reset-list">
+              <li class="award-item">
+                <details>
+                  <summary class="award-subject"><b>06</b><span class="a11y-hidden">월</span>대한민국 창업대상 산업통상자원부 장관상 수상</summary>
+                  <figure class="award-thumbnail">
+                    <img src="../images/thumbnail-award.jpg" alt="" />
+                    <figcaption>서울경제에서 주최하는 대한민국 창업대상 CEO 부문에 국무총리상을 수상하였습니다.</figcaption>
+                  </figure>
+                  <p>
+                    <span class="round-bar">수상일</span>
+                    <time class="award-date" datetime="2019-06-18">2019.06.18</time>
+                  </p>
+                </details>
+              </li>
+              <li class="award-item">
+                <details>
+                  <summary class="award-subject"><b>02</b><span class="a11y-hidden">월</span>사회보험 사각지대해소 '특별상' 수상</summary>
+                  <figure class="award-thumbnail">
+                    <img src="../images/thumbnail-award.jpg" alt="" />
+                    <figcaption>서울경제에서 주최하는 대한민국 창업대상 CEO 부문에 국무총리상을 수상하였습니다.</figcaption>
+                  </figure>
+                  <p>
+                    <span class="round-bar">수상일</span>
+                    <time class="award-date" datetime="2019-06-18">2019.06.18</time>
+                  </p>
+                </details>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="../images/brand-dark.svg" alt="EDIYA COFFEE" />
+        </div>
+        <ul class="guide-list reset-list">
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">멤버스 이용약관</a></li>
+          <li><a href="#">가맹 안내</a></li>
+          <li><a href="#">대량쿠폰구매</a></li>
+          <li><a href="#">채용안내</a></li>
+          <li><a href="#">고객의 소리</a></li>
+          <li><a href="#">사이트맵</a></li>
+          <li><a href="#">점주의 방</a></li>
+        </ul>
+        <address class="address">
+          <span>서울특별시 강남구 논현로 636 이디야빌딩(서울특별시 강남구 논현동 221-17)</span>
+          <span><b>TEL : </b>02-543-6467</span>
+          <span><b>FAX : </b>02-543-7191</span>
+          <span><b>사업자등록번호 : </b>107-86-16302</span>
+          <span><b>통신판매업 신고 : </b>강남 제 002519호</span>
+          <span><b>대표이사 : </b>문창기</span>
+        </address>
+        <small class="copyright">&copy; 2017 EDIYA COFFEE COMPANY. ALL RIGHTS RESERVED..</small>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

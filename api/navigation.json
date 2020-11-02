@@ -1,0 +1,39 @@
+{
+  "name": "이디야 커피 사이트 디자인(학습용) 내비게이션 목록 데이터",
+  "description": "이듬(E.UID) 블렌디드 러닝 실습 교육에 활용되는 내비게이션 목록 JSON 데이터입니다.",
+  "author": "야무(yamoo9)",
+  "email": "yamoo9@euid.dev",
+  "version": "0.0.1",
+  "data": [
+    {
+      "id": "navigation-qao3u",
+      "link": "/views/login.html",
+      "text": "로그인"
+    },
+    {
+      "id": "navigation-men2i",
+      "link": "/views/signup.html",
+      "text": "회원가입"
+    },
+    {
+      "id": "navigation-lqk1t",
+      "link": "/views/ui-design.html",
+      "text": "이디야 디자인"
+    },
+    {
+      "id": "navigation-men3o",
+      "link": "/views/beverage.html",
+      "text": "이디야 음료"
+    },
+    {
+      "id": "navigation-mqn1j",
+      "link": "/views/news.html",
+      "text": "이디야 뉴스"
+    },
+    {
+      "id": "navigation-kwn3r",
+      "link": "/views/store.html",
+      "text": "매장 찾기"
+    }
+  ]
+}

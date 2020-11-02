@@ -1,0 +1,30 @@
+:root {
+  min-height: 100.055vh;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #233d84;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}

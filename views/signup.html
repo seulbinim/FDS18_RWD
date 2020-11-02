@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 가입 ← 이디야 커피(Ediya Coffee)</title>
+    <meta name="description" content="이디야 커피 브랜드 사이트 (학습용) 회원 가입 페이지입니다." />
+    <meta name="keywords" content="이디야, 커피, 브랜드, 사이트, 학습용, 회원 가입, 이듬, 블렌디드 러닝" />
+    <meta name="author" content="이듬(E.UID)" />
+
+    <!-- 
+    [성능 개선]
+    - 외부 도메인의 리소스는 preconnect 합니다.
+    - 현재 페이지에서 반드시 사용되는 리소스는 preload 합니다.
+    - 미래에 사용되는 리소스는 prefetch 합니다.
+    -->
+    <link rel="preconnect" href="//spoqa.github.io" />
+    <link rel="preconnect" href="//www.figma.com" />
+    <link rel="preconnect" href="//cdnjs.cloudflare.com" />
+    <link rel="preload" as="style" href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" />
+    <link rel="preload" as="style" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="preload" as="style" href="../css/style.css" />
+    <link rel="preload" as="script" href="../js/utils/dom.js" />
+    <link rel="preload" as="script" href="../js/navigationControl.js" />
+    <link rel="preload" as="script" href="../js/goToTopControl.js" />
+    <link rel="preload" as="image" href="../images/brand.svg" />
+    <link rel="preload" as="image" href="../images/brand-dark.svg" />
+    <link rel="preload" as="image" href="../images/button-navigation.svg" />
+    <link rel="preload" as="image" href="../images/icon-arrow-disabled.svg" />
+    <link rel="preload" as="image" href="../images/icon-arrow-white.svg " />
+    <link rel="preload" as="image" href="../images/icon-visible.svg" />
+    <link rel="preload" as="image" href="../images/icon-warning.svg" />
+    <link rel="preload" as="image" href="../images/icon-invisible.svg" />
+    <link rel="preload" as="image" href="../images/icon-checked.svg" />
+    <link rel="prefetch" as="image" href="../media/coffee-latte-art-cover.png" />
+    <link rel="prefetch" as="video" href="../media/coffee-latte-art.mp4" />
+    <link rel="prefetch" as="image" href="../images/coffee-desktop.jpg" />
+    <link rel="prefetch" as="image" href="../images/coffee-mobile.jpg" />
+
+    <!-- 스타일링 -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+
+    <!-- 스크립트: 즉시 실행 -->
+    <script src="../js/utils/dom.js"></script>
+    <script src="../js/utils/mixins.js"></script>
+    <script src="../js/utils/isDevelopmentMode.js"></script>
+    <script src="../js/polyfills/Array.from.js"></script>
+
+    <script src="../js/components/navigation/Navigation.js"></script>
+    <script src="../js/components/navigation/NavigationItem.js"></script>
+    <script src="../js/components/form/formConstant.js"></script>
+    <script src="../js/components/form/EmailInput.js"></script>
+    <script src="../js/components/form/PasswordDisplayButton.js"></script>
+    <script src="../js/components/form/PasswordInput.js"></script>
+    <script src="../js/components/goToTop/GoToTop.js"></script>
+
+    <!-- 스크립트: DOM 콘텐츠 준비 이후 실행 -->
+    <script src="../js/navigationControl.js" defer></script>
+    <script src="../js/formControl.js" defer></script>
+    <script src="../js/signUpVideoControl.js" defer></script>
+    <script src="../js/goToTopControl.js" defer></script>
+
+    <!-- 폴리필 라이브러리: Object Fit, Position - https://github.com/constancecchen/object-fit-polyfill -->
+    <script src="../js/polyfills/objectFitPolyfill.basic.min.js" defer></script>
+  </head>
+
+  <body class="membership">
+
+    <div class="app-header-container">
+      <header class="app-header">
+        <h1 class="brand">
+          <a href="../index.html"><img src="../images/brand.svg" alt="Ediya Coffee" class="respons" /></a>
+        </h1>
+        <button type="button" class="button is-open-menu" aria-label="메뉴 열기" title="메뉴 열기">
+          <span class="ir"></span>
+        </button>
+        <nav class="app-navigation">
+          <h2 class="a11y-hidden">메인 메뉴</h2>
+          <ul class="reset-list">
+            <!-- 비동기 데이터 바인딩 → 내비게이션 리스트 렌더링 -->
+          </ul>
+          <script type="text/template" id="template-navigation-list">
+            <li data-id="{item.id}"><a href="{item.link}">{item.text}</a></li>
+          </script>
+          <button type="button" class="button is-close-menu" title="메뉴 닫기" aria-label="메뉴 닫기">
+            <span class="close" aria-hidden="true">×</span>
+          </button>
+        </nav>
+      </header>
+    </div>
+
+    <div class="bg-video-container" role="presentation">
+      <!-- 
+      Object Fit, Position 폴리필 라이브러리 사용법
+      https://github.com/constancecchen/object-fit-polyfill#usage
+      
+      data-object-fit, data-object-position 속성 설정
+      -->
+      <video
+             src="../media/coffee-latte-art.mp4"
+             poster="../media/coffee-latte-art-cover.png"
+             preload="auto" autoplay muted loop
+             data-object-fit="cover"
+             data-object-position="center">
+      </video>
+    </div>
+
+    <main class="app-main">
+      <section class="member signup">
+        <h2 class="member-headline">회원가입</h2>
+        <p class="member-text" lang="en">Join Us, Ediya Coffee</p>
+        <p class="member-text">이디야멤버스 가입을 진행합니다.</p>
+        <form action="#" method="POST" class="member-form">
+          <fieldset>
+            <legend>회원가입 폼</legend>
+            <div class="member-id">
+              <label for="userEmail">이메일</label>
+              <input
+                     type="email"
+                     id="userEmail"
+                     name="userEmail"
+                     aria-required="true"
+                     aria-invalid="false"
+                     aria-describedby="emailErrorFeedback" />
+              <span
+                    role="alert"
+                    id="emailErrorFeedback"
+                    class="member-id--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
+            </div>
+            <div class="member-password">
+              <label for="userPassword">패스워드</label>
+              <input
+                     type="password"
+                     id="userPassword"
+                     name="userPassword"
+                     aria-required="true"
+                     aria-invalid="false"
+                     aria-describedby="passwordErrorFeedback" />
+              <span
+                    role="alert"
+                    id="passwordErrorFeedback"
+                    class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
+              <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
+            </div>
+            <!-- 패스워드 확인의 경우 기존 패스워드와 일치하는지 여부를 검증하기 위한 자바스크립트가 필요함. -->
+            <div class="member-password">
+              <label for="userPasswordCheck">패스워드 확인</label>
+              <input
+                     type="password"
+                     id="userPasswordCheck"
+                     name="userPasswordCheck"
+                     aria-required="true"
+                     aria-invalid="false"
+                     aria-describedby="passwordConfirmErrorFeedback" />
+              <span
+                    role="alert"
+                    id="passwordConfirmErrorFeedback"
+                    class="member-password--error">패스워드가 일치하지 않습니다.</span>
+              <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
+            </div>
+            <div class="button-container is--disabled">
+              <button type="submit" class="button-signup button-fill" disabled>가입하기</button>
+              <a href="./login.html" class="button-login button-stroke">로그인</a>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="../images/brand-dark.svg" alt="EDIYA COFFEE" />
+        </div>
+        <ul class="guide-list reset-list">
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">멤버스 이용약관</a></li>
+          <li><a href="#">가맹 안내</a></li>
+          <li><a href="#">대량쿠폰구매</a></li>
+          <li><a href="#">채용안내</a></li>
+          <li><a href="#">고객의 소리</a></li>
+          <li><a href="#">사이트맵</a></li>
+          <li><a href="#">점주의 방</a></li>
+        </ul>
+        <address class="address">
+          <span>서울특별시 강남구 논현로 636 이디야빌딩(서울특별시 강남구 논현동 221-17)</span>
+          <span><b>TEL : </b>02-543-6467</span>
+          <span><b>FAX : </b>02-543-7191</span>
+          <span><b>사업자등록번호 : </b>107-86-16302</span>
+          <span><b>통신판매업 신고 : </b>강남 제 002519호</span>
+          <span><b>대표이사 : </b>문창기</span>
+        </address>
+        <small class="copyright">&copy; 2017 EDIYA COFFEE COMPANY. ALL RIGHTS RESERVED..</small>
+      </div>
+    </footer>
+
+    <button type="button" class="button-goToTop">
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <title>페이지 상단 이동</title>
+        <circle cx="25" cy="25" r="25" fill="#C8CDE2" />
+        <path d="M25 38C25.6072 38 26.1 37.5147 26.1 36.9167V15.3047L34.1037 23.5803C34.3198 23.804 34.6097 23.9167 34.9001 23.9167C35.1723 23.9167 35.4457 23.8175 35.6585 23.6177C36.0985 23.2049 36.1156 22.5192 35.6965 22.0858L26.556 12.6348C26.1402 12.2259 25.588 12 25 12C24.412 12 23.8598 12.2259 23.4259 12.6538L14.3035 22.0864C13.8844 22.5197 13.9015 23.2055 14.3415 23.6182C14.7815 24.031 15.4783 24.0142 15.8969 23.5808L23.9 15.2706V36.9167C23.9 37.5147 24.3928 38 25 38Z" fill="#0F0F0F" />
+      </svg>
+    </button>
+
+  </body>
+
+</html>

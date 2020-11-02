@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이디야 음료 ← 이디야 커피(Ediya Coffee)</title>
+    <meta name="description" content="이디야 커피 브랜드 사이트 (학습용) 음료 목록 페이지입니다." />
+    <meta name="keywords" content="이디야, 커피, 브랜드, 사이트, 학습용, 음료 목록, 이듬, 블렌디드 러닝" />
+    <meta name="author" content="이듬(E.UID)" />
+
+    <!-- 
+    [성능 개선]
+    - 외부 도메인의 리소스는 preconnect 합니다.
+    - 현재 페이지에서 반드시 사용되는 리소스는 preload 합니다.
+    - 미래에 사용되는 리소스는 prefetch 합니다.
+    -->
+    <link rel="preconnect" href="//spoqa.github.io" />
+    <link rel="preconnect" href="//www.figma.com" />
+    <link rel="preconnect" href="//cdnjs.cloudflare.com" />
+    <link rel="preload" as="style" href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" />
+    <link rel="preload" as="style" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="preload" as="style" href="../css/style.css" />
+    <link rel="preload" as="script" href="../js/utils/dom.js" />
+    <link rel="preload" as="script" href="../js/utils/mixins.js" />
+    <link rel="preload" as="script" href="../js/polyfills/unfetch.js" />
+    <link rel="preload" as="script" href="../js/navigationControl.js" />
+    <link rel="preload" as="script" href="../js/goToTopControl.js" />
+    <link rel="preload" as="image" href="../images/brand.svg" />
+    <link rel="preload" as="image" href="../images/brand-dark.svg" />
+    <link rel="preload" as="image" href="../images/button-navigation.svg" />
+    <link rel="prefetch" as="image" href="../images/coffee-desktop.jpg" />
+    <link rel="prefetch" as="image" href="../images/coffee-mobile.jpg" />
+    <link rel="prefetch" as="image" href="../images/icon-arrow-disabled.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-arrow-white.svg " />
+    <link rel="prefetch" as="image" href="../images/icon-visible.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-warning.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-invisible.svg" />
+    <link rel="prefetch" as="image" href="../images/icon-checked.svg" />
+    <link rel="prefetch" as="image" href="../media/coffee-latte-art-cover.png" />
+    <link rel="prefetch" as="video" href="../media/coffee-latte-art.mp4" />
+
+    <!-- 스타일링 -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+
+
+    <!-- 스크립트: 즉시 실행 -->
+    <script src="../js/utils/dom.js"></script>
+    <script src="../js/utils/mixins.js"></script>
+    <script src="../js/utils/isDevelopmentMode.js"></script>
+    <script src="../js/polyfills/unfetch.js"></script>
+    <script src="../js/components/navigation/Navigation.js"></script>
+    <script src="../js/components/navigation/NavigationItem.js"></script>
+    <script src="../js/components/card/CardList.js"></script>
+    <script src="../js/components/card/CardItem.js"></script>
+    <script src="../js/components/goToTop/GoToTop.js"></script>
+
+    <!-- 스크립트: DOM 콘텐츠 준비 이후 실행 -->
+    <script src="../js/navigationControl.js" defer></script>
+    <script src="../js/beverageControl.js" defer></script>
+    <script src="../js/goToTopControl.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app-header-container">
+      <header class="app-header">
+        <h1 class="brand">
+          <a href="../index.html"><img src="../images/brand.svg" alt="Ediya Coffee" class="respons" /></a>
+        </h1>
+        <button type="button" class="button is-open-menu" aria-label="메뉴 열기" title="메뉴 열기">
+          <span class="ir"></span>
+        </button>
+        <nav class="app-navigation">
+          <h2 class="a11y-hidden">메인 메뉴</h2>
+          <ul class="reset-list">
+            <!-- 비동기 데이터 바인딩 → 내비게이션 리스트 렌더링 -->
+          </ul>
+          <script type="text/template" id="template-navigation-list">
+            <li data-id="{item.id}"><a href="{item.link}">{item.text}</a></li>
+          </script>
+          <button type="button" class="button is-close-menu" title="메뉴 닫기" aria-label="메뉴 닫기">
+            <span class="close" aria-hidden="true">×</span>
+          </button>
+        </nav>
+      </header>
+    </div>
+    <main class="app-main">
+      <section class="beverage">
+        <h2 class="a11y-hidden">이디야 음료</h2>
+
+        <ul class="ediya-menu reset-list">
+          <!-- 비동기 통신 후, 리스트 렌더링 처리 -->
+        </ul>
+
+        <!-- 음료 아이템 템플릿 -->
+        <script type="text/template" id="template-ediya-menu__item">
+          <li class="ediya-menu__item" data-id="{id}">
+            <a href="#" role="button" aria-haspopup="dialog" aria-pressed="false">
+              <figure>
+                <img src="{figure.src}" alt width="{figure.width}" height="{figure.height}" />
+                <figcaption>{figure.name}</figcaption>
+              </figure>
+            </a>
+            <div hidden class="ediya-menu__item--detail" role="dialog" aria-modal="false" aria-labelledby="ediya-menu__item--{id}">
+              <h3 id="ediya-menu__item--{id}" class="ediya-menu__item--name">{detail.ko}<span lang="en">{detail.en}</span></h3>
+              <p>{detail.desc}</p>
+              <div class="ediya-menu__item--multi-column is-2">
+                <dl>
+                  {{for}}
+                    <dt>{criteria.key}</dt>
+                    <dd>({criteria.value})</dd>
+                  {{/for}}
+                </dl>
+              </div>
+              <button type="button" class="button is-close-panel" title="닫기" aria-label="음료 정보 패널 닫기">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </li>
+        </script>
+        <!-- 음료 템플릿 END -->
+
+      </section>
+    </main>
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="../images/brand-dark.svg" alt="EDIYA COFFEE" />
+        </div>
+        <ul class="guide-list reset-list">
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">멤버스 이용약관</a></li>
+          <li><a href="#">가맹 안내</a></li>
+          <li><a href="#">대량쿠폰구매</a></li>
+          <li><a href="#">채용안내</a></li>
+          <li><a href="#">고객의 소리</a></li>
+          <li><a href="#">사이트맵</a></li>
+          <li><a href="#">점주의 방</a></li>
+        </ul>
+        <address class="address">
+          <span>서울특별시 강남구 논현로 636 이디야빌딩(서울특별시 강남구 논현동 221-17)</span>
+          <span><b>TEL : </b>02-543-6467</span>
+          <span><b>FAX : </b>02-543-7191</span>
+          <span><b>사업자등록번호 : </b>107-86-16302</span>
+          <span><b>통신판매업 신고 : </b>강남 제 002519호</span>
+          <span><b>대표이사 : </b>문창기</span>
+        </address>
+        <small class="copyright">&copy; 2017 EDIYA COFFEE COMPANY. ALL RIGHTS RESERVED..</small>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

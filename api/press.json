@@ -1,0 +1,153 @@
+{
+  "name": "이디야 커피 사이트 디자인(학습용) 뉴스 → 테이블 데이터",
+  "description": "이듬(E.UID) 블렌디드 러닝 실습 교육에 활용되는 뉴스 → 테이블 JSON 데이터입니다.",
+  "author": "야무(yamoo9)",
+  "email": "yamoo9@euid.dev",
+  "version": "0.0.1",
+  "data": [
+    {
+      "id": "press-urb9o",
+      "no": "001",
+      "title": "[중앙일보] 이디야 커피, 로스팅부터 배달까지 직접... 드림팩토리 준공",
+      "content": "국내 커피 프랜차이즈 이디야커피는 1일 창립 19주년을 맞아 경기도 평택시 포승공단에 건립한 로스팅 공장 ‘이디야 드림팩토리’ 준공식을 갖고 가동을 시작했다.",
+      "link": "https://news.joins.com/article/23744569",
+      "image": "",
+      "publishedAt": "2020-04-01"
+    },
+    {
+      "id": "press-iuv5k",
+      "no": "002",
+      "title": "[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정",
+      "content": "이디야커피는 가맹점을 위해 상생정책을 시행한 노력을 인정받아 25일 공정거래조정원이 인증하는 `착한 프랜차이즈`에 선정되었습니다.",
+      "link": "https://www.mk.co.kr/news/business/view/2020/05/532535/",
+      "image": "https://file.mk.co.kr/meet/neds/2020/05/image_readtop_2020_532535_15903745584213120.jpg",
+      "publishedAt": "2020-05-29"
+    },
+    {
+      "id": "press-med8d",
+      "no": "003",
+      "title": "[뉴시스] 이디야커피, 열대과일 후룻치노 출시",
+      "content": "이디야커피가 플랫치노 신제품인 '그린파인 후룻치노'와 '블루코코 후룻치노'를 9일 출시했습니다.",
+      "link": "https://newsis.com/view/?id=NISX20200609_0001052670&cID=13001&pID=13000",
+      "image": "https://image.newsis.com/2020/06/09/NISI20200609_0000541456_web.jpg?rnd=20200609075616",
+      "publishedAt": "2020-06-09"
+    },
+    {
+      "id": "press-klq7b",
+      "no": "004",
+      "title": "[매일경제] 이디야커피, '달고나 아이스크림 와플'도 선보여",
+      "content": "이디야커피가 달고나를 사용한 '달고나 아이스크림 와플'을 출시한다고 16일 밝혔습니다.",
+      "link": "https://www.mk.co.kr/news/business/view/2020/06/615725/",
+      "image": "https://file.mk.co.kr/meet/neds/2020/06/image_readtop_2020_615725_15922821694242818.jpg",
+      "publishedAt": "2020-06-16"
+    },
+    {
+      "id": "press-qod1a",
+      "no": "005",
+      "title": "[컨슈머타임즈] 이디야커피, 본격적인 여름 맞아 텀블러·워터보틀 출시",
+      "content": "이디야커피가 6월 24일 여름을 맞아 음료를 보관할 수 있는 용기 '쿨 텀블러'와 '쿨 워터보틀'을 선보인다고 밝혔습니다.",
+      "link": "http://www.cstimes.com/news/articleView.html?idxno=419361",
+      "image": "http://www.cstimes.com/news/photo/202006/419361_319144_263.jpg",
+      "publishedAt": "2020-06-24"
+    },
+    {
+      "id": "press-kwi9z",
+      "no": "006",
+      "title": "[아주경제] 이디야커피, 커피 산지 과테말라에 깨끗한 물 전한다",
+      "content": "이디야커피는 국제구호개발 NGO 굿네이버스와 과테말라 식수위생지원사업을 후원하기 위한 협약을 체결했다고 13일 밝혔습니다.",
+      "link": "https://www.ajunews.com/view/20200713083824654",
+      "image": "https://image.ajunews.com/content/image/2020/07/13/20200713083900154470.jpg",
+      "publishedAt": "2020-07-13"
+    },
+    {
+      "id": "press-zsk2w",
+      "no": "007",
+      "title": "[MTN] 이디야커피, 100% 자연의 맛 즐기는 '과채 주스' 2종 출시",
+      "content": "이디야커피가 건강과 맛을 동시에 잡은 RTD(Ready to Drink·병 음료) 신제품 착즙주스 2종과 추억의 강정 '꿀 오란다'를 선보인다고 14일 밝혔습니다.",
+      "link": "https://news.mtn.co.kr/newscenter/news_viewer.mtn?gidx=2020071409095957950",
+      "image": "https://menu.mtn.co.kr/upload/article/2020/07/14/2020071409095957950_00_450.jpg",
+      "publishedAt": "2020-07-14"
+    },
+    {
+      "id": "press-skz5i",
+      "no": "008",
+      "title": "[뉴스워커] 이디야커피, 보냉기능 탁월한 '엑스트라 콜드컵' 3종 출시",
+      "content": "이디야커피가 여름 시즌을 맞아 산뜻한 파스텔톤의 컬러감이 돋보이는 '엑스트라 콜드컵' 3종을 출시했다고 15일 밝혔습니다.",
+      "link": "https://www.newsworker.co.kr/news/articleView.html?idxno=78150",
+      "image": "https://www.newsworker.co.kr/news/photo/202007/78150_87821_1918.jpg",
+      "publishedAt": "2020-07-15"
+    },
+    {
+      "id": "press-kre8t",
+      "no": "009",
+      "title": "[아시아경제] 이디야커피, 부드럽고 쫄깃한 '대만식 샌드위치' 2종 출시",
+      "content": "이디야커피가 탕종식빵으로 쫄깃한 식감을 살린 대만식 샌드위치 2종을 추가로 출시했다고 18일 밝혔습니다.",
+      "link": "https://view.asiae.co.kr/article/2020081808533518620",
+      "image": "https://cphoto.asiae.co.kr/listimglink/1/2020081808514129734_1597708302.jpg",
+      "publishedAt": "2020-08-24"
+    },
+    {
+      "id": "press-iow1p",
+      "no": "010",
+      "title": "[아시아경제] 이디야커피, '비니스트 커피믹스' 2종 출시",
+      "content": "이디야커피가 27일 언제 어디서나 간편하게 즐길 수 있는 ‘비니스트 커피믹스’ 2종을 출시했다고 밝혔습니다.",
+      "link": "https://view.asiae.co.kr/article/2020082708162802300",
+      "image": "https://cphoto.asiae.co.kr/listimglink/1/2020082708143146701_1598483671.jpg",
+      "publishedAt": "2020-08-27"
+    },
+    {
+      "id": "press-zqd8t",
+      "no": "011",
+      "title": "[뉴스1] \"올해 추석은 커피향 가득\"… 이디야커피, 선물세트 5종 선봬",
+      "content": "이디야커피가 4일 추석 명절을 맞아 인기 제품을 한데 모은 '추석 선물세트'를 출시했다고 밝혔습니다.",
+      "link": "https://www.news1.kr/articles/?4048062",
+      "image": "https://image.news1.kr/system/photos/2020/9/4/4367483/medium.jpg",
+      "publishedAt": "2020-09-04"
+    },
+    {
+      "id": "press-ytv32",
+      "no": "012",
+      "title": "[MTN] 이디야커피, 조각 케이크 2종 출시…디저트 강화",
+      "content": "이디야커피가 조각 케이크 신제품 2종과 기존 조각 케이크 3종을 리뉴얼해 출시하며 디저트 케이크 라인업을 강화했다고 8일 밝혔습니다.",
+      "link": "https://news.mtn.co.kr/newscenter/news_viewer.mtn?gidx=2020090808212960613",
+      "image": "https://menu.mtn.co.kr/upload/article/2020/09/08/2020090808212960613_00_741.jpg",
+      "publishedAt": "2020-09-08"
+    },
+    {
+      "id": "press-mqk6w",
+      "no": "013",
+      "title": "[뉴시스] 이디야커피, '기프트 카드' 출시",
+      "content": "이디야커피가 21일 전국 3000여개 매장에서 현금처럼 사용 가능한 기프트 카드를 출시하고 이를 기념해 구매 인증 및 복권 이벤트를 진행한다고 밝혔다.",
+      "link": "https://newsis.com/view/?id=NISX20200921_0001172742&cID=13001&pID=13000",
+      "image": "",
+      "publishedAt": "2020-09-21"
+    },
+    {
+      "id": "press-qow2p",
+      "no": "014",
+      "title": "[아시아경제] 이디야커피, 부드럽고 풍성한 크림 가득 ‘아인슈페너’ 3종 출시",
+      "content": "이디야커피가 23일 본격적인 가을을 맞아 풍성한 크림을 얹어 부드럽게 즐길 수 있는 ‘아인슈페너’ 3종을 출시했다고 밝혔습니다.",
+      "link": "https://view.asiae.co.kr/article/2020092308023676265",
+      "image": "https://cphoto.asiae.co.kr/listimglink/1/2020092308001997238_1600815620.jpg",
+      "publishedAt": "2020-09-23"
+    },
+    {
+      "id": "press-lkj6i",
+      "no": "015",
+      "title": "[뉴스워커] 이디야커피, 가을 톤의 색감이 돋보이는 '클래시 텀블러' 3종 출시",
+      "content": "이디야커피가 9월을 맞아 가을 톤의 색감이 돋보이는 시즌 MD ‘클래시 텀블러’ 3종을 9일 출시했다고 밝혔습니다.",
+      "link": "https://www.newsworker.co.kr/news/articleView.html?idxno=84525",
+      "image": "https://www.newsworker.co.kr/news/photo/202009/84525_95972_4456.jpg",
+      "publishedAt": "2020-09-24"
+    },
+    {
+      "id": "press-sfd0n",
+      "no": "016",
+      "title": "[FETV] 이디야커피, ‘배달의민족’ 주문시 3000원 할인 이벤트 진행",
+      "content": "이디야커피가 배달 어플리케이션 배달의민족에서 음료 및 베이커리를 주문하는 고객을 대상으로 3000원 할인 이벤트를 진행한다고 31일 밝혔습니다.",
+      "link": "https://www.fetv.co.kr/news/article.html?no=51595​​",
+      "image": "https://www.fetv.co.kr/data/photos/20200314/art_15856358780857_eb6dae.jpg",
+      "publishedAt": "2020-09-28"
+    }
+  ]
+}

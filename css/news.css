@@ -1,0 +1,471 @@
+/* --------------------------------------------
+  * 이디야 뉴스 관련 콘텐츠 디자인 */
+/* 이디야 뉴스 탭 메뉴 (ul 요소) */
+.news-tab {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* 이디야 뉴스 탭 목록 (li 요소) */
+.news-tab [role="none"] {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  background: #f5f5f5;
+  padding: 2px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* 이디야 뉴스 탭 항목 (a 요소) */
+.news-tab [role="tab"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #24388d;
+  background: #fefefe;
+}
+
+.news-tab [role="tab"]:focus {
+  position: relative;
+  z-index: 10;
+}
+
+.news-tab [aria-selected="true"] {
+  color: #fefefe;
+  background: #24388d;
+}
+/* ---------------------------- */
+
+/* 뉴스 콘텐츠 섹션 공통 */
+/* 뉴스 패널 (section 요소) */
+.news [role="tabpanel"] {
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* 탭 항목을 선택하여 [role="tabpanel"]에 .is--selected가 동적으로 할당된 경우 */
+.news [role="tabpanel"].is--selected {
+  display: block;
+}
+
+/* 뉴스 섹션 제목 공통 (h2 요소) */
+.news-headline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #24388d;
+}
+
+.news-headline::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  margin-right: 4px;
+  background: url(../images/icon-news-headline.svg) no-repeat 0 0 / 100% 100%;
+}
+
+/* 뉴스 섹센 텍스트 공통 (p 요소) */
+.news-text {
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+/* ---------------------------- */
+
+/* 언론 속 이디야 섹션 (section.news__press 요소) */
+.news__press-form {
+  padding: 20px 0;
+}
+
+/* 뉴스 검색을 위한 폼 서식 그룹 (div.press-search-container로 그룹) */
+.press-search-container {
+  height: 26px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
+}
+
+/* 검색 옵션 선택을 위한 서식 ( 제목/내용 ) */
+.press-search-container select {
+  user-select: none;
+  width: 80px;
+  margin-right: 5px;
+  border: 0;
+  border-radius: 3px;
+  background: #f5f5f5;
+}
+
+/* 검색어 입력 서식 */
+.press-search-container .keyword-container {
+  flex-grow: 1;
+  height: 26px;
+  /* border-bottom: 5px solid red; */
+  border-bottom: 1px solid #0f0f0f;
+}
+.press-search-container input[type="search"] {
+  width: calc(100% - 20px);
+  border: 0;
+  padding: 6px;
+  height: 25px;
+}
+
+/* 검색 버튼 - 배경이미지로 처리하는 방식 */
+/* news.html 및 store.html에 사용 */
+.button-search {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 0;
+  bottom: 5px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.button-search .icon-search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../images/icon-search.svg) no-repeat 0 0 / 16px 16px;
+}
+
+.news__press-container {
+  /* 뉴스 검색 폼, 테이블, 페이지네이션 */
+}
+
+/* 언론속 이디야 뉴스 데이터 테이블 (table, tr, th, td 요소) */
+.news__press-table {
+  width: 100%;
+  border-top: 2px solid #24388d;
+  border-bottom: 2px solid #24388d;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #24388d;
+}
+
+.news__press-table col:nth-child(1) {
+  width: 5%;
+}
+
+.news__press-table col:nth-child(2) {
+  width: 55.5%;
+}
+
+.news__press-table th,
+.news__press-table td {
+  border-bottom: 1px solid #919bc6;
+}
+
+.news__press-table th {
+  padding: 15px 5px;
+}
+
+.news__press-table td {
+  padding: 15px;
+  vertical-align: baseline;
+}
+
+.news__press-table td:first-child {
+  text-align: right;
+  font-size: 12px;
+}
+
+.press-link {
+  display: block;
+}
+
+/* 언론속 이디야 뉴스 데이터 테이블 내 썸네일 이미지 (figure 요소) */
+.press-thumbnail {
+  display: none;
+}
+
+.ediya-media-news .media-thumbnail {
+  display: none;
+}
+
+.press-thumbnail img {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+/* 언론속 이디야 뉴스 데이터 테이블 뉴스 텍스트 (dl 요소) */
+.press-article {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.press-article dt {
+  color: #24388d;
+  font-size: 15px;
+}
+
+.press-article dd {
+  margin-top: 5px;
+  margin-left: 0;
+  color: #878787;
+  font-size: 13px;
+}
+
+.press-date {
+  font-size: 12px;
+}
+
+/* 페이징 (재활용 가능성을 위해 div.pagination-container로 그룹) */
+.pagination-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 16px;
+  margin: 12px auto 0;
+}
+
+/* 페이징 영역의 이전/다음 버튼 (SVG 이미지로 마크업) */
+.pagination-container .button-prev,
+.pagination-container .button-next {
+  border: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  background: transparent no-repeat 0 0 / 100% 100%;
+  transform: scale(1.2);
+}
+
+.pagination-container .button-prev svg,
+.pagination-container .button-next svg {
+  width: inherit;
+  height: inherit;
+}
+
+.pagination-container .button-prev path,
+.pagination-container .button-next path,
+.pagination-container .button[disabled] svg path {
+  fill: #919bc6;
+}
+
+.pagination-container .button-prev:hover path,
+.pagination-container .button-next:hover path {
+  fill: #24388d;
+}
+
+/* 페이징 번호 영역 (ul 요소) */
+.pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: -3px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+.pagination a {
+  color: #919bc6;
+  padding: 0 3px;
+}
+.pagination a:hover {
+  color: #24388d;
+}
+
+.pagination [aria-current="page"] {
+  font-weight: 700;
+  color: #24388d;
+}
+/* ---------------------------- */
+
+/* 수상 내역 섹션 (section.news__award 요소)*/
+/* 수상 내역에 배경을 지정하기 위한 컨테이너 (div 요소) */
+.award-container {
+  background: #f5f5f5;
+  margin: 25px -20px -20px;
+}
+
+/* 연도별 수상 내역 섹션 (section.news__award__year 요소) */
+.news__award__year {
+  padding: 0 20px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.news__award__year:first-child {
+  padding-top: 25px;
+}
+
+.news__award__year:last-child {
+  padding-bottom: 50px;
+}
+
+/* .news_award__year내 연도 (h3 요소) */
+.award-headline {
+  font-weight: 700;
+  color: #24388d;
+  margin: 0 25px 0 0;
+}
+
+/* .news_award__year내 수상내역 목록 (ul 요소) */
+.award-list {
+  flex-grow: 1;
+  border-left: 1px solid #c8cde2;
+  position: relative;
+}
+
+.award-list::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  transform: translateX(-50%);
+  background-color: #24388d;
+  border-radius: 4px;
+}
+
+/* .news_award__year내 수상내역 목록 항목 (li 요소) */
+.award-item {
+  margin-bottom: 20px;
+}
+
+/* 수상내역의 경우 details, summary 요소를 사용하여 마크업 */
+/* .news_award__year내 수상내역 (summary 요소) */
+.award-subject {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f0f0f;
+  position: relative;
+  list-style-type: none;
+  width: 100%;
+  padding: 5px;
+}
+
+/* summary 요소의 기본 불릿을 제거하가 위한 선언 */
+.eaward-subject::marker {
+  display: none;
+}
+
+.award-subject::-webkit-details-marker {
+  display: none;
+  color: transparent;
+}
+
+/* summary 요소의 기본 배경 이미지 (펼칠 수 있음을 나타내는 배경이미지) */
+.award-subject::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url(../images/icon-arrow-down.svg) no-repeat 0 0 / 100% 100%;
+}
+
+/* details 요소의 속성 값이 open일 경우 summary 요소의 배경이미지(접을 수 있음을 나타내는 배경이미지) 변경 */
+details[open] .award-subject::after {
+  background-image: url(../images/icon-arrow-up.svg);
+}
+
+/* summary 내 수상 "월"을 위한 마크업 (b 요소) */
+.award-subject b {
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+/* 수상내역 썸네일 이미지 (figure 요소) */
+.award-thumbnail {
+  margin-left: 25px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.award-thumbnail figcaption {
+  margin-top: 10px;
+}
+
+/* 수상내역 텍스트 (p 요소 - 내부에 span 요소와 time 요소가 포함 됨) */
+.award-item p {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* 수상날짜 (time 요소) */
+.award-date {
+  color: #5b6aa9;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+/* Mobile UI 적용을 위한 Breakpoint */
+@media all and (max-width: 767px) {
+  /* 모바일 이디야 뉴스 관련 콘텐츠 디자인 */
+  .news-tab [role="none"] {
+    height: 48px;
+    width: 50%;
+  }
+}
+
+/* Desktop UI 적용을 위한 Breakpoint */
+@media all and (min-width: 768px) {
+  /* 데스크탑 이디야 뉴스 관련 콘텐츠 디자인 */
+  .news-tab {
+    justify-content: center;
+    margin-top: 70px;
+  }
+
+  .news-tab [role="tab"] {
+    width: initial;
+    height: initial;
+    padding: 0.83333em 2.4em;
+  }
+
+  /* 데스크탑 뉴스 */
+  .news [role="tabpanel"] {
+    max-width: 740px;
+  }
+
+  /* 데스크탑 언론 속 이디야 검색 폼 */
+  .news__press-form fieldset {
+    max-width: 440px;
+    margin-left: auto;
+  }
+
+  .news__press-table col:nth-child(2) {
+    width: 78.6%;
+  }
+
+  .press-thumbnail {
+    display: block;
+    float: left;
+    margin: 5px 10px 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* 데스크탑 수상 내역 */
+  .news__award .news-headline,
+  .news__award .news-text,
+  .news__award__year {
+    width: 740px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .news__award__year:last-child {
+    padding-bottom: 80px;
+  }
+}

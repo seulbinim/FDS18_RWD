@@ -1,0 +1,367 @@
+/* 본문 내 헤더, 메인 콘텐츠, 푸터 배치를 위한 body 레이아웃 */
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------
+  * 헤더 디자인 */
+.app-header-container {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  /* width: 100vw; */
+}
+
+.app-header {
+  position: sticky;
+  z-index: 600;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  /* border-bottom: 1px solid #e0e0e0; */
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* 로그인 및 회원가입 페이지의 헤더 디자인 수정 */
+.membership .app-header {
+  background-color: #fff;
+}
+
+.membership .app-navigation {
+  backdrop-filter: none;
+}
+
+/* 브랜드 (헤더) */
+.brand {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.brand a {
+  box-sizing: content-box;
+  display: block;
+  width: 140px;
+  height: 14px;
+  padding: 18px;
+}
+
+.brand a:focus {
+  outline-offset: -5px;
+}
+
+.brand a img {
+  display: block;
+}
+
+/* --------------------------------------------
+  * 메인 콘텐츠 섹션 공통 */
+.app-main {
+  flex-grow: 1;
+  margin-top: 2px;
+}
+
+/* 브랜드(헤더) 영역을 배경으로 디지인 할 경우 */
+/* .brand a {
+  display: block;
+  width: 152px;
+  height: 15px;
+  padding: 26px;
+  background: url("../images/brand.svg") no-repeat center;
+  background-size: 152px 15px;
+ } */
+
+/* --------------------------------------------
+  * 내비게이션 디자인 */
+/* 내비게이션의 경우 모바일과 데스크탑 UI가 상이하기 때문에 미디어 쿼리에 각각의 UI를 디자인 할 예정 */
+
+/* --------------------------------------------
+  * 푸터 디자인 */
+
+/* 푸터 배경 및 기본 글자 색상 디자인 */
+.app-footer {
+  background-color: #0f0f0f;
+  color: #878787;
+  text-align: center;
+}
+
+/* 푸터 영역을 flex를 활용하여 유연하게 배치하기 위한 컨테이너 */
+.footer-container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 0 20px;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+/* 브랜드 (푸터) */
+.footer-brand {
+  margin-top: 25px;
+  line-height: 1;
+}
+
+/* 가이드 링크 목록 */
+.guide-list {
+  order: -1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0 26px 19px;
+  border-bottom: 1px solid rgba(97, 97, 97, 0.5);
+}
+
+.guide-list li {
+  margin: 0 0 5px 0;
+}
+
+.guide-list a {
+  display: block;
+  opacity: 0.75;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.guide-list a:hover,
+.guide-list a:focus {
+  opacity: 1;
+}
+
+/* address와 copyright 공통 여백 처리 */
+.address,
+.copyright {
+  padding: 0 22px;
+}
+
+/* 주소 및 연락처 정보 */
+.address {
+  font-style: normal;
+  margin-top: 17px;
+}
+
+.address span {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 11px;
+}
+
+.address span:first-child,
+.address span:last-child {
+  margin-right: 0;
+}
+
+/* 저작권 정보 */
+.copyright {
+  font-size: 1.1rem;
+  margin-top: 12px;
+}
+
+@media all and (max-width: 767px) {
+  /* 모바일 내비게이션 디자인 */
+  .app-navigation {
+    overflow-y: auto;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 150vw;
+    right: -150vw;
+    bottom: 0;
+    padding-top: 60px;
+    background: hsla(225, 57%, 10%, 0.9);
+    color: #fff;
+    transition: right 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86),
+      left 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  .app-navigation.is-active {
+    right: 0;
+    left: 0;
+  }
+
+  .app-navigation li {
+    border-bottom: 1px solid hsla(225, 57%, 30%, 0.5);
+  }
+
+  .app-navigation a {
+    display: block;
+    padding: 12px 22px;
+    transition: all 0.4s ease;
+  }
+
+  .app-navigation a:hover,
+  .app-navigation a:focus {
+    background: #2e437c;
+  }
+
+  /* 버튼 디자인 */
+  .app-header .button .ir,
+  .app-header .button .close {
+    cursor: pointer;
+  }
+
+  .app-header .button.is-open-menu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 18px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .app-header .button.is-open-menu .ir {
+    display: block;
+    cursor: pointer;
+    width: 18px;
+    height: 14px;
+    background: url(../images/button-navigation.svg) no-repeat 50%;
+  }
+
+  .app-header .button.is-open-menu:hover,
+  .app-header .button.is-open-menu:focus {
+    background: #f5f5f5;
+  }
+
+  .app-navigation .button.is-close-menu {
+    position: absolute;
+    z-index: 10;
+    top: 8px;
+    right: 8px;
+    padding: 17px;
+    background: transparent;
+    color: #fff;
+    transition: all 0.4s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app-navigation .button.is-close-menu:focus {
+    outline-offset: -5px;
+  }
+
+  .app-navigation .button.is-close-menu:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  .app-navigation .button.is-close-menu .close {
+    display: block;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* 페이지 상단 이동 버튼 */
+.button-goToTop {
+  cursor: pointer;
+  opacity: 0.7;
+  position: fixed;
+  z-index: 2000;
+  right: 30px;
+  bottom: 30px;
+
+  width: 50px;
+  height: 50px;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translateY(200px) scale(0);
+  transition: all 0.8s 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button-goToTop.is--active {
+  transform: none;
+}
+
+.button-goToTop:hover,
+.button-goToTop:focus {
+  opacity: 1;
+}
+
+/* Desktop UI 적용을 위한 Breakpoint */
+@media all and (min-width: 768px) {
+  /* 데스크탑 헤더 디자인 */
+  .app-header {
+    width: 740px;
+    margin: 0 auto;
+    box-shadow: none;
+  }
+
+  /* 데스크탑 브랜드 로고 */
+  .brand {
+    margin-left: -20px;
+  }
+
+  /* 데스크탑 내비게이션 디자인 */
+  .app-navigation ul {
+    display: flex;
+  }
+
+  .app-navigation li {
+    margin-left: 8px;
+    font-size: 1.5rem;
+    color: #24388d;
+  }
+
+  .app-navigation .is--selected {
+    font-weight: 700;
+  }
+
+  .app-navigation a {
+    display: block;
+    padding: 8px;
+  }
+
+  .is-open-menu,
+  .is-close-menu {
+    display: none;
+  }
+  /* 데스크탑 메인 콘텐츠 영역 디자인 */
+  .app-main {
+    margin-top: 0;
+  }
+
+  /* 데스크탑 푸터 디자인 */
+  /* 가이드 링크 목록 하단의 구분선을 배치하기 위해 footer를 기준 컨테이너로 설정 */
+  .app-footer {
+    position: relative;
+  }
+
+  .app-footer::before {
+    content: "";
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(97, 97, 97, 0.5);
+  }
+
+  /* Desktop UI 적용을 위한 푸터 컨테이너 크기 설정 */
+  .footer-container {
+    padding-top: 0;
+    width: 740px;
+  }
+
+  /* 가이드 링크 목록 */
+  .guide-list {
+    padding: 20px 0;
+    border-bottom: 0;
+  }
+
+  .guide-list li {
+    margin-bottom: 0;
+  }
+}

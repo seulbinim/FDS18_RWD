@@ -1,0 +1,138 @@
+/* 스토어 main.store (main 요소) */
+.store {
+  padding: 20px 18px;
+}
+/* 매장 검색 폼 (label 및 input, button 요소를 그룹으로 묶은 컨테이너) */
+.store-form-container {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+/* 스토어 검색 폼 내 label 요소의 기본 스타일 */
+.store__search {
+  background: #f5f5f5;
+  transform: scale(0);
+  animation: transformNone 0.45s 0.8s cubic-bezier(0.18, 0.89, 0.32, 1.27) forwards;
+}
+
+.store__search label {
+  width: 50%;
+  background: #f5f5f5;
+  font-size: 13px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  color: #24388d;
+}
+/* 스토어 검색 폼 내 label 요소가 .is--selectd를 가질 경우 label 요소의 스타일 재정의 */
+.store__search label.is--selected {
+  background: #24388d;
+  font-weight: 700;
+  color: #fefefe;
+}
+/* 스토어 검색 폼 내 검색 입력서식 (input[type="search") */
+.store__search input[type="search"] {
+  display: none;
+  order: 1;
+  width: 100%;
+  border: 8px solid #24388d;
+  height: 48px;
+  padding-left: 0.5em;
+}
+/* 스토어 검색 폼 내 label 요소가 .is--selectd를 가질 경우 인접한 검색 입력서식 보이기 */
+.store__search label.is--selected + input[type="search"] {
+  display: block;
+}
+/*  */
+.store__search .button-search {
+  top: 48px;
+  right: 15px;
+}
+/* 스토어 검색 결과 목록 */
+.store-list {
+  margin-top: 3px;
+}
+/* 스토어 매장 검색 리스트 내 a[role="button"] */
+.store-list [role="button"] {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 10px;
+  background: #fefefe;
+  border: 3px solid #f5f5f5;
+}
+/* .store-list 내 첫번째 li 요소의 a[role="button"] */
+.store-list li:first-child [role="button"] {
+  border-bottom: 0;
+}
+/* 스터어 매장 썸네일 (figure 요소) */
+.store-thumbnail {
+  margin: 0 10px 0 0;
+  width: 45px;
+  height: 45px;
+}
+/* 매장이름/주소 콘텐츠 영역 */
+.store-list dl {
+  flex-grow: 1;
+  margin: 0;
+  color: #24388d;
+}
+.store-list dt {
+  font-size: 15;
+  font-weight: 700;
+}
+.store-list dd {
+  margin-left: 0;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.05em;
+}
+/* ---------------------------- */
+
+/* 스토어 매장위치 지도 섹션 */
+.store__map {
+  margin: 20px 0 0 0;
+}
+/* 스토어 매장위치 지도 컨테이너 */
+.iframe-container {
+  position: relative;
+  padding-top: 75%;
+  margin: 0;
+}
+/* 스토어 매장위치 지도 (iframe 요소) */
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Desktop UI 적용을 위한 Breakpoint */
+@media all and (min-width: 768px) {
+  /* 데스크탑 스토어 메인 (main 요소) */
+  .store {
+    padding: 30px;
+  }
+  /* 데스크탑 매장 검색 섹션 */
+  .store__search {
+    position: fixed;
+    top: 110px;
+    right: 60px;
+    width: 420px;
+    z-index: 1;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.35);
+  }
+  /* 데스크탑 매장 위치 섹션 */
+  .store__map {
+    margin-top: 0;
+  }
+}
+
+/* 애니메이션 */
+@keyframes transformNone {
+  to {
+    transform: none;
+  }
+}
