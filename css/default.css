@@ -39,12 +39,7 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   background-color: #fff;
-}
-
-/* 내비게이션 내 기본 링크 스타일 */
-nav a {
-  color: inherit;
-  text-decoration: none;
+  color: #181818;
 }
 
 /* a 요소 내 이미지에 발생하는 갭 제게 */
