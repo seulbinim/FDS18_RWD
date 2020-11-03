@@ -1,0 +1,94 @@
+/* 추천 음료 공통 */
+/* 추천 음료 컨테이너 */
+.ediya-recommend-container {
+  background-color: var(--theme-bright);
+}
+/* 추천 음료 섹션 */
+.ediya-recommend {
+  color: var(--theme-default);
+  background-color: var(--theme-secondary);
+  text-align: center;
+}
+.ediya-recommend-text {
+  font-size: 1.4rem;
+}
+.ediya-recommend-text[lang='en'] {
+  font-weight: 100;
+}
+.ediya-recommend-text[lang='en']::after {
+  content: "";
+  width: 40px;
+  border-top: 1px solid var(--theme-primary);
+  display: inline-block;
+}
+.ediya-recommend-text em {
+  color: var(--theme-primary);
+  font-style: normal;
+  font-weight: 700;
+}
+/* 추천 음료 리스트 */
+.ediya-recommend-list {
+  border-top: 2px solid red;
+  position: relative;
+}
+/* 메뉴보기 링크 */
+.go-menu {
+  position: relative;
+  display: inline-block;
+  padding: 8px 24px;
+  color: var(--theme-primary);
+  border: 1px solid currentColor;
+}
+
+@media all and (max-width: 767px) {
+  /* 모바일 추천 음료 */
+  .ediya-recommend-container {
+    padding-bottom: 165px;
+  }
+  .ediya-recommend {
+    padding: 25px 0 20px;
+  }
+  .ediya-recommend-text {
+    margin: 15px 0;
+  }
+  .ediya-recommend-text[lang='en'] {
+    font-size: 2.5rem;
+  }
+  .ediya-recommend-text em {
+    display: block;
+  }
+  .ediya-recommend-beverage:first-child {
+    display: none;
+  }
+  .ediya-recommend-beverage:last-child {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    width: 60%;
+    transform: translateX(-60%);
+  }
+  .ediya-recommend-beverage img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media all and (min-width: 768px) {
+  /* 데스크탑 추천 음료 */
+  .ediya-recommend-container {
+    padding-bottom: 245px;
+  }
+  .ediya-recommend {
+    padding: 20px 0 30px;
+  }
+  .ediya-recommend-text {
+    margin: 30px 0;
+  }
+  .ediya-recommend-text[lang='en'] {
+    font-size: 3.1rem;
+  }
+  .ediya-recommend-text[lang='en']::after {
+    display: block;
+    margin: 30px auto 0;
+  }
+}

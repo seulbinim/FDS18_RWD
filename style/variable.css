@@ -1,0 +1,7 @@
+/* 색상 변수 */
+:root {
+  --theme-bright: #fff;
+  --theme-default: #14182c;
+  --theme-primary: #24388d;
+  --theme-secondary: #bae5fb;
+}
