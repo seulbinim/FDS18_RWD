@@ -27,6 +27,60 @@ body {
 .brand a {
   display: block;
 }
+/* 공통 푸터 */
+.app-footer-container {
+  background-color: var(--theme-dark);
+  color: var(--theme-disable);
+}
+.app-footer {
+  font-size: 1.2rem;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+.app-footer > * {
+  width: 100%;
+}
+.footer-brand {
+  padding: 20px 0 10px;
+}
+.guide-list {
+  order: -1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 15px 0;
+}
+.guide-list li {
+  margin: 0 5px;
+}
+.guide-list a {
+  display: block;
+  padding: 5px 0;
+}
+.address {
+  font-style: normal;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.address span {
+  margin: 10px 5px 0;
+}
+.copyright {
+  font-size: 1.1rem;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+/* 공통 위로가기 버튼 */
+.button-goToTop {
+  background-color: transparent;
+  position: fixed;
+  border: 0;
+  padding: 0;
+}
+
 @media all and (max-width: 767px) {
   /* 모바일 헤더 */
 
@@ -87,6 +141,19 @@ body {
   .is--active .app-navigation {
     transform: none;
   }
+  /* 모바일 푸터 */
+  .guide-list {
+    border-bottom: 1px solid currentColor;
+  }
+  .address,
+  .copyright {
+    padding: 0 20px;
+  }
+  /* 모바일 위로가기 버튼 */
+  .button-goToTop {
+    bottom: 15px;
+    right: 15px;
+  }
 }
 @media all and (min-width: 768px) {
   /* 데스크탑 헤더 */
@@ -110,5 +177,26 @@ body {
   .app-navigation li {
     margin-left: 8px;
     color: #24388d;
+  }
+  /* 데스크탑 푸터 */
+  .app-footer-container {
+    position: relative;
+  }
+  .app-footer-container::before {
+    content: "";
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid currentColor;
+  }
+  .app-footer {
+    width: 740px;
+    margin: 0 auto;
+  }
+  /* 데스크탑 위로가기 버튼 */
+  .button-goToTop {
+    bottom: 50px;
+    right: 50px;
   }
 }
