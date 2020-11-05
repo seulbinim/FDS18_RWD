@@ -124,8 +124,8 @@
   align-items: center;
 }
 .save-email input {
-  position: relative;
-  z-index: 10;
+  /* position: relative; */
+  /* z-index: 10; */
   width: 16px;
   height: 16px;
   opacity: 0;
